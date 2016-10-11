@@ -1,10 +1,6 @@
 $(function(){
 	var version=10,
 		flags=false;
-	$('.input-code img').on('click',function(){
-		$(this).attr('src','/verifyCode?v='+version);
-		version+=10;
-	});
 	$('#submitBtn').on('click',function(e){
 		e.preventDefault();
 		if(flags)
@@ -19,19 +15,13 @@ $(function(){
 			shake($('.pwd-box'));
 			return;
 		}
-		var verifycode=$('#verifycode').val();
-		if(!verifycode){
-			shake($('.code-wrapper'));
-			return;
-		}
 		$.ajax({
-			url:'/login',
+			url:'/index',
 			dataType:'json',
 			type:'post',
 			data:{
 				username:username,
-				password:password,
-				verifycode:verifycode
+				password:password
 			},
 			success:function(data){
 				if(data){
