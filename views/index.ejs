@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%=title %></title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+	<script type="text/javascript">
+        document.documentElement.style.fontSize = window.innerWidth / 6.4 + "px";
+    </script>
+	<!-- 强制全屏 Start-->
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes" />
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true" />
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application" />
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app" />
+    <!--强制全屏 END-->
+	<link rel="stylesheet" type="text/css" href="../public/stylesheets/common.css">
+	<link rel="stylesheet" type="text/css" href="../public/stylesheets/animate.css">
+	<link rel="stylesheet" type="text/css" href="../public/stylesheets/login.css">
+</head>
+<body>
+	<div class="page">
+		<div class="login_wrapper">
+			<div class="head">登 录</div>
+			<div class="input-box name-box">
+				<i class="icon name"></i>
+				<input type="text" id="username" placeholder="请输入用户名">
+			</div>
+			<div class="input-box pwd-box">
+				<i class="icon pwd"></i>
+				<input type="text" id="password" placeholder="请输入密码">
+			</div>
+			<div class="input-code clearfix">
+				<div class="code-wrapper">
+					<input type="text" id="verifycode" placeholder="请输入验证码" maxlength="4">
+				</div>
+				<img src="/verifyCode?v=1">
+			</div>
+			<div class="input-btn">
+				<a id="submitBtn">登 录</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../public/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="../public/javascripts/login.js"></script>
+</html>
