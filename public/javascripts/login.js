@@ -16,7 +16,7 @@ $(function(){
 			return;
 		}
 		$.ajax({
-			url:'/index',
+			url:'/',
 			dataType:'json',
 			type:'post',
 			data:{
@@ -28,7 +28,7 @@ $(function(){
 					if(data.status){
 						//登录成功
 						console.log('登录成功');
-						window.location.href='/';
+						window.location.href='/home';
 					}
 					else{
 						if(data.flag==0){	
