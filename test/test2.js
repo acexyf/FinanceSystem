@@ -10,9 +10,6 @@ for(let i=0;i<timeArray.length;i++){
 	let date=timeArray[i].split('-');
 	Consume.getConsumeByMonth(date[0],date[1],-1,-1,function(result){
 		countArray.push(date[0]+'-'+date[1]+':'+result);
-		if(i==timeArray.length-1){
-			console.log(countArray);
-		}
 	})
 }
 

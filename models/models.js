@@ -1,55 +1,84 @@
 var data = [{
-    "name": "other",
+    "name": "其他",
     "type": 0,
     "list": [{
-        "name": "other",
+        "name": "其他",
         "type": 0
     }]
 }, {
-    "name": "eat",
+    "name": "吃喝",
     "type": 1,
     "list": [{
-        "name": "other",
+        "name": "其他",
         "type": 0
     }, {
-        "name": "breakfast",
+        "name": "早饭",
         "type": 1
     }, {
-        "name": "lunch",
+        "name": "中饭",
         "type": 2
     }, {
-        "name": "dinner",
+        "name": "晚饭",
         "type": 3
     }]
 }, {
-    "name": "stay",
+    "name": "住宿",
     "type": 2,
     "list": [{
-        "name": "other",
+        "name": "其他",
         "type": 0
     }, {
-        "name": "rent",
+        "name": "房租",
         "type": 1
     }, {
-        "name": "hotel",
+        "name": "宾馆",
         "type": 2
     }]
 }, {
-    "name": "trip",
+    "name": "出行",
     "type": 3,
     "list": [{
-        "name": "other",
+        "name": "其他",
         "type": 0
     }, {
-        "name": "bus",
+        "name": "公交",
         "type": 1
     }, {
-        "name": "train",
+        "name": "火车",
         "type": 2
     }, {
-        "name": "taxi",
+        "name": "出租车",
         "type": 3
     }]
-},{
-	"name"
+}, {
+    "name": "穿着",
+    "type": 4,
+    "list": [{
+        "name": "其他",
+        "type": 0
+    }, {
+        "name": "上装",
+        "type": 1
+    }, {
+        "name": "裙装",
+        "type": 2
+    }, {
+        "name": "裤装",
+        "type": 3
+    }]
+}, {
+    "name": "生活",
+    "types": 5,
+    "list": [{
+        "name": "其他",
+        "type": 0
+    }, {
+        "name": "门票",
+        "type": 1
+    } {
+        "name": "超市",
+        "type": 2
+    }]
 }]
+
+module.exports=data

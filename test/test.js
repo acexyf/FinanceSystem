@@ -9,14 +9,18 @@ import Income from '../models/income.js';
 // })
 
 
-var data={
-	id:0,
-	amount:652,
-	times:'2017-02-13',
-	explains:'explaint',
-	genre:1
+for(let i=10;i<11;i++){
+	for(let j=1;j<10;j++){
+		let data={
+			id:0,
+			amount:Math.floor(Math.random()*50),
+			times:'2016-'+i+'-'+j,
+			explains:'explaint',
+			genre:Math.floor(Math.random()*2)
+		}
+		let income=new Income(data);
+		income.save(function(result){
+			console.log(result)
+		})
+	}
 }
-var income=new Income(data);
-income.save(function(result){
-	console.log(result)
-})
