@@ -23,7 +23,7 @@
                 </div>
             </div>
             <!-- SIDEBAR TOGGLE BUTTON  END-->
-            <a href="#" class="logo">
+            <a href="/home" class="logo">
           XYF
           <span>
             Admin
@@ -80,14 +80,21 @@
             <div id="sidebar" class="nav-collapse" tabindex="5000" style="overflow: hidden; outline: none;">
                 <ul class="sidebar-menu" id="nav-accordion" style="display: block;">
                     <li>
-                        <a href="index.html" class="active">
+                        <a href="/home" class="active">
+                            <i class="fa fa-dashboard">
+                            </i>
+                            <span>主页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/addIncome" class="active">
                             <i class="fa fa-dashboard">
                 			</i>
                             <span>新增收入</span>
                         </a>
                     </li>
                     <li>
-                        <a href="index.html" class="active">
+                        <a href="/addConsume" class="active">
                             <i class="fa fa-dashboard">
                 			</i>
                             <span>新增支出</span>
@@ -106,7 +113,7 @@
                   				</i>
                             </div>
                             <div class="value">
-                                <h1 class="count"><%=data[0] %></h1>
+                                <h1 class="count"><%=data.sum %></h1>
                                 <p>
                                     本月收入
                                 </p>
@@ -120,7 +127,7 @@
                   				</i>
                             </div>
                             <div class="value">
-                                <h1 class="count"><%=data[1] %></h1>
+                                <h1 class="count"><%=data.other %></h1>
                                 <p>
                                     本月其他
                                 </p>
@@ -134,7 +141,7 @@
                   				</i>
                             </div>
                             <div class="value">
-                                <h1 class="count"><%=data[2] %></h1>
+                                <h1 class="count"><%=data.eat %></h1>
                                 <p>
                                     本月吃喝
                                 </p>
@@ -148,7 +155,7 @@
                   				</i>
                             </div>
                             <div class="value">
-                                <h1 class="count"><%=data[3] %></h1>
+                                <h1 class="count"><%=data.stay %></h1>
                                 <p>
                                     本月住宿
                                 </p>
@@ -162,7 +169,7 @@
                   				</i>
                             </div>
                             <div class="value">
-                                <h1 class="count"><%=data[4] %></h1>
+                                <h1 class="count"><%=data.trip %></h1>
                                 <p>
                                     本月出行
                                 </p>
@@ -176,7 +183,7 @@
                   				</i>
                             </div>
                             <div class="value">
-                                <h1 class="count"><%=data[5] %></h1>
+                                <h1 class="count"><%=data.cloth %></h1>
                                 <p>
                                     本月衣服
                                 </p>
@@ -190,7 +197,7 @@
                   				</i>
                             </div>
                             <div class="value">
-                                <h1 class="count"><%=data[6] %></h1>
+                                <h1 class="count"><%=data.life %></h1>
                                 <p>
                                     本月生活
                                 </p>

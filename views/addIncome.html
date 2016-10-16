@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/bootstrap-reset.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/clndr.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/morris.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/style-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/style.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/datepicker.css">
+</head>
+
+<body>
+    <section id="container">
+        <header class="header white-bg">
+            <!-- SIDEBAR TOGGLE BUTTON -->
+            <div class="sidebar-toggle-box">
+                <div data-placement="right" class="fa fa-bars tooltips" data-original-title="" title="">
+                </div>
+            </div>
+            <!-- SIDEBAR TOGGLE BUTTON  END-->
+            <a href="#" class="logo">
+          XYF
+          <span>
+            Admin
+          </span>
+        </a>
+            <!-- START USER LOGIN DROPDOWN  -->
+            <div class="top-nav ">
+                <ul class="nav pull-right top-menu">
+                    <!-- <li>
+                        <input type="text" class="form-control search" placeholder="Search">
+                    </li> -->
+                    <!-- <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="img/avatar1_small.jpg">
+                            <span class="username">
+			                  Pruthvi
+			                </span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li class="log-arrow-up">
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class=" fa fa-suitcase">
+                    				</i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-cog">
+                    				</i> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-bell-o">
+                    				</i> Notification
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-key">
+                    				</i> Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- END USER LOGIN DROPDOWN  -->
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse" tabindex="5000" style="overflow: hidden; outline: none;">
+                <ul class="sidebar-menu" id="nav-accordion" style="display: block;">
+                    <li>
+                        <a href="index.html" class="active">
+                            <i class="fa fa-dashboard">
+                			</i>
+                            <span>新增收入</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" class="active">
+                            <i class="fa fa-dashboard">
+                			</i>
+                            <span>新增支出</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+<scetion id="main-content">
+	<section class="wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<section class="panel">
+					<div class="panel-body">
+						<form>
+							<div class="form-group">
+                                 <label for="amount">收入(必填)/单位：元</label>
+                                 <input type="number" class="form-control" id="amount" placeholder="收入" style="color: #333">
+	                        </div>
+	                        <div class="form-group">
+	                        	<label>类型</label>
+	                        	<div class="input-group-btn">
+		                              <button type="button" class="btn btn-white dropdown-toggle genre" data-toggle="dropdown" data-type="1">工资<span class="caret"></span></button>
+		                              <ul class="dropdown-menu incomeModels">
+		                                 <li data-type="0"><a href="javascrip:;">其他</a></li>
+		                                 <li data-type="1"><a href="javascrip:;">工资</a></li>
+		                              </ul>
+                                </div>
+	                        </div>
+	                        <div class="form-group">
+	                        	<label for="">选择日期</label>
+	                        	<input readonly="readonly" class="form-control form-control-inline input-medium default-date-picker" size="16" type="text" value="" style="color: #333;background: #fff;">
+	                        </div>
+	                        <div class="form-group">
+	                                 <label for="explains">说明(选填)</label>
+	                                 <input type="text" class="form-control" id="explains" placeholder="说明" style="color: #333">
+	                        </div>
+	                        <button class="btn submit btn-primary" type="submit" name="">提交</button>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+</scetion>
+
+
+    </section>
+
+
+    <script type="text/javascript" src="../public/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../public/javascripts/home/jquery.dcjqaccordion.2.7.js"></script>
+    <script type="text/javascript" src="../public/javascripts/home/jquery.nicescroll.js"></script>
+    <script type="text/javascript" src="../public/javascripts/home/common-scripts.js"></script>
+	<script type="text/javascript" src="../public/javascripts/home/bootstrap-datepicker.js"></script>
+	<script type="text/javascript">
+    var incomeModels=$('.incomeModels'),
+    	genre=$('.genre');
+	$.ajax({
+		url:'/getIncomeModels',
+		type:'get',
+		dataType:'json',
+		success:function(data){
+			var mydata=data;
+            if(typeof data=='string'){
+                mydata=JSON.parse(mydata);
+            }
+            mydata.map(function(elem){
+            	incomeModels.append('<li data-type="'+elem.type+'"><a href="javascrip:;">'+elem.name+'</a></li>')
+            })
+
+		}
+	})
+	$('li',incomeModels).on('click',function(){
+    	genre.html($('a',this).html()+'<span class="caret"></span>');
+    	genre.data('type',$(this).data('type'));
+    });
+	$('.default-date-picker').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+	</script>
+
+</body>
+
+</html>

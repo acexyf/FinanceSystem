@@ -1,11 +1,17 @@
 const urls = {
     index: '/',
     home: '/home',
-    lastEightMonths: '/lastEightMonths'
+    lastEightMonths: '/lastEightMonths',
+    getConsumeModels: '/getConsumeModels',
+    getIncomeModels: '/getIncomeModels',
+    addIncome: '/addIncome',
+    addConsume: '/addConsume'
 }
 import person from '../password.js';
 import Consume from '../models/consume.js';
 import Income from '../models/income.js';
+import consumeModels from '../models/consumeModels.js';
+import incomeModels from '../models/incomeModels.js';
 
 module.exports = function(app) {
     app.get(urls.index, function(req, res) {
@@ -31,27 +37,21 @@ module.exports = function(app) {
         }
     });
     app.get(urls.home, function(req, res) {
-        let date = new Date(),
-            array = [];
-        Income.getIncomeByMonth(date.getFullYear(), date.getMonth() + 1, -1, function(result) {
-            array.push(result);
-            for (let i = 0; i < 6; i++) {
-                Consume.getConsumeByMonth(date.getFullYear(), date.getMonth() + 1, i, -1, function(result) {
-                    array.push(result);
-                    if (array.length == 7) {
-                        res.render('home', {
-                            title: '谢小飞的财务管理系统',
-                            data: array
-                        })
-                    }
+        let date = new Date();
+        Income.getIncomeByMonth(date.getFullYear(), date.getMonth() + 1, -1, function(sum) {
+            Consume.getMonthConsumeByGenre(date.getFullYear(), date.getMonth() + 1, function(mydata) {
+                mydata.sum = sum;
+                res.render('home', {
+                    title: '谢小飞的财务管理系统',
+                    data: mydata
                 })
-            }
+            })
         })
     });
     app.get(urls.lastEightMonths, function(req, res) {
         let countArray = [],
             date = new Date(),
-            timeArray = returnLastMonths(date.getFullYear(), date.getMonth() + 1, 8);
+            timeArray = returnLastMonths(date.getFullYear(), date.getMonth() + 1, 12);
         for (let i = 0; i < timeArray.length; i++) {
             let date = timeArray[i].split('-');
             Consume.getConsumeByMonth(date[0], date[1], -1, -1, function(result) {
@@ -63,7 +63,109 @@ module.exports = function(app) {
                 }
             })
         }
-
+    });
+    app.get(urls.getConsumeModels, function(req, res) {
+        res.json(consumeModels);
+    });
+    app.get(urls.getIncomeModels, function(req, res) {
+        res.json(incomeModels);
+    })
+    app.get(urls.addIncome, function(req, res) {
+        res.render('addIncome', {
+            title: '新增收入'
+        })
+    });
+    app.post(urls.addIncome, function(req, res) {
+        let amount = req.param('amount'),
+            genre = req.param('genre'),
+            times = req.param('times'),
+            explains = req.param('explains');
+        if (!amount) {
+            res.json('{"status":false}');
+        } else {
+            let datas;
+            if (times) {
+                let arr = times.split('-');
+                datas = {
+                    amount: amount,
+                    times: times,
+                    explains: explains,
+                    genre: genre,
+                    years: arr[0],
+                    months: arr[1],
+                    days: arr[2]
+                }
+            } else {
+                let dates = new Date();
+                datas = {
+                    amount: amount,
+                    times: dates.getFullYear() + '-' + (dates.getMonth() + 1) + '-' + dates.getDate(),
+                    explains: explains,
+                    genre: genre,
+                    years: dates.getFullYear(),
+                    months: dates.getMonth() + 1,
+                    days: dates.getDate()
+                }
+            }
+            var income = new Income(datas);
+            income.save(function(result) {
+                if (result) {
+                    res.json('{"status":true}');
+                } else {
+                    res.json('{"status":false}');
+                }
+            })
+        }
+    });
+    app.get(urls.addConsume, function(req, res) {
+        res.render('addConsume', {
+            title: '新增支出'
+        })
+    });
+    app.post(urls.addConsume, function(req, res) {
+        let amount = req.param('amount'),
+            genre = req.param('genre'),
+            times = req.param('times'),
+            explains = req.param('explains'),
+            detail = req.param('detail');
+        if (!amount) {
+            res.json('{"status":false}');
+        } else {
+            let datas;
+            if (times) {
+                let arr = times.split('-');
+                datas = {
+                    amount: amount,
+                    times: times,
+                    explains: explains,
+                    genre: genre,
+                    detail: detail,
+                    years: arr[0],
+                    months: arr[1],
+                    days: arr[2],
+                }
+            } else {
+                let dates = new Date();
+                datas = {
+                    amount: amount,
+                    times: dates.getFullYear() + '-' + (dates.getMonth() + 1) + '-' + dates.getDate(),
+                    explains: explains,
+                    genre: genre,
+                    detail: detail,
+                    years: dates.getFullYear(),
+                    months: dates.getMonth() + 1,
+                    days: dates.getDate()
+                }
+            }
+            var consume = new Consume(datas);
+            consume.save(function(result) {
+                if (result) {
+                    res.json('{"status":true}');
+                } else {
+                    res.json('{"status":false}');
+                }
+            })
+        }
     });
 }
 

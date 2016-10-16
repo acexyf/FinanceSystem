@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%=title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/bootstrap-reset.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/clndr.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/morris.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/style-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/style.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/home/datepicker.css">
+</head>
+
+<body>
+    <section id="container">
+        <header class="header white-bg">
+            <!-- SIDEBAR TOGGLE BUTTON -->
+            <div class="sidebar-toggle-box">
+                <div data-placement="right" class="fa fa-bars tooltips" data-original-title="" title="">
+                </div>
+            </div>
+            <!-- SIDEBAR TOGGLE BUTTON  END-->
+            <a href="/home" class="logo">
+          XYF
+          <span>
+            Admin
+          </span>
+        </a>
+            <!-- START USER LOGIN DROPDOWN  -->
+            <div class="top-nav ">
+                <ul class="nav pull-right top-menu">
+                    <!-- <li>
+                        <input type="text" class="form-control search" placeholder="Search">
+                    </li> -->
+                    <!-- <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="img/avatar1_small.jpg">
+                            <span class="username">
+			                  Pruthvi
+			                </span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li class="log-arrow-up">
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class=" fa fa-suitcase">
+                    				</i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-cog">
+                    				</i> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-bell-o">
+                    				</i> Notification
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-key">
+                    				</i> Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- END USER LOGIN DROPDOWN  -->
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse" tabindex="5000" style="overflow: hidden; outline: none;">
+                <ul class="sidebar-menu" id="nav-accordion" style="display: block;">
+                    <li>
+                        <a href="/home" class="active">
+                            <i class="fa fa-dashboard">
+                            </i>
+                            <span>主页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/addIncome" class="active">
+                            <i class="fa fa-dashboard">
+                			</i>
+                            <span>新增收入</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/addConsume" class="active">
+                            <i class="fa fa-dashboard">
+                			</i>
+                            <span>新增支出</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+<scetion id="main-content">
+	<section class="wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<section class="panel">
+					<div class="panel-body">
+						<form>
+							<div class="form-group">
+                                 <label for="amount">金额(必填)/单位：元</label>
+                                 <input type="number" class="form-control" id="amount" placeholder="填写支出金额" style="color: #333">
+	                        </div>
+	                        <div class="form-group">
+	                        	<label>类型</label>
+	                        	<div class="input-group-btn">
+                                        <div class="dropdown">
+                                            
+    		                              <button type="button" class="btn btn-white dropdown-toggle genre" data-toggle="dropdown" data-type="0"><span class="caret"></span></button>
+    		                              <ul class="dropdown-menu genreList">
+                                            
+    		                              </ul>
+                                        </div>
+
+                                        <div class="dropdown">
+                                          <button type="button" class="btn btn-white dropdown-toggle detail" data-toggle="dropdown" data-type="" style="margin-top: 10px;"><span class="caret"></span></button>
+                                          <ul class="dropdown-menu detailList">
+                                            <li>
+                                                <a href="">详细1</a>
+                                            </li>
+                                            <li>
+                                                <a href="">详细2</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                </div>
+
+	                        </div>
+	                        <div class="form-group">
+	                        	<label for="">选择日期(选填)/不填为今天</label>
+	                        	<input readonly="readonly" class="form-control form-control-inline input-medium default-date-picker times" size="16" type="text" value="" style="color: #333;background: #fff;">
+	                        </div>
+	                        <div class="form-group">
+	                                 <label for="explains">说明(选填)</label>
+	                                 <input type="text" class="form-control" id="explains" placeholder="说明" style="color: #333">
+	                        </div>
+	                        <button class="btn submit btn-primary" type="submit" name="">提交</button>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+</scetion>
+
+
+    </section>
+
+
+    <script type="text/javascript" src="../public/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../public/javascripts/home/jquery.dcjqaccordion.2.7.js"></script>
+    <script type="text/javascript" src="../public/javascripts/home/jquery.nicescroll.js"></script>
+    <script type="text/javascript" src="../public/javascripts/home/common-scripts.js"></script>
+	<script type="text/javascript" src="../public/javascripts/home/bootstrap-datepicker.js"></script>
+	<script type="text/javascript">
+    var genre=$('.genre'),
+        genreList=$('.genreList'),
+        detail=$('.detail'),
+        detailList=$('.detailList')
+	$('.default-date-picker').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+
+    $.ajax({
+        url:'/getConsumeModels',
+        type:'get',
+        dataType:'json',
+        success:function(data){
+            if(typeof data=='string'){
+                data=JSON.parse(data)
+            }
+            consumeModels=data;
+            setGenre(0);
+            setDetail(0,0);
+            genreList.html('');
+            consumeModels.map(function(elem){
+                genreList.append('<li data-type="'+elem.type+'"><a href="javascript:;">'+elem.name+'</a></li>')
+            });
+            detailList.html('');
+            consumeModels[0].list.map(function(elem){
+                 detailList.append('<li data-type="'+elem.type+'"><a href="javascript:;">'+elem.name+'</a></li>')
+            });
+
+            $('li',genreList).on('click',function(){
+                var tempIndex=parseInt($(this).data('type'));
+                if(tempIndex==genre.data('type')){
+                    return;
+                }
+                setGenre(tempIndex);
+                detailList.html('');
+                setDetail(tempIndex,0)
+                consumeModels[tempIndex].list.map(function(elem){
+                     detailList.append('<li data-type="'+elem.type+'"><a href="javascript:;">'+elem.name+'</a></li>')
+                });
+                $('li',detailList).on('click',function(){
+                    var tempIndex1=parseInt($(this).data('type'));
+                    setDetail(tempIndex,tempIndex1);
+                });
+            });
+        }
+    });
+
+    $('.submit').on('click',function(e){
+        e.preventDefault();
+        var amount=$('#amount').val();
+        if(!amount){
+            alert('猪头你忘记写金额了')
+        }
+        else{
+            $.ajax({
+                url:'/addConsume',
+                type:'post',
+                dataType:'json',
+                data:{
+                    amount:amount,
+                    genre:genre.data('type'),
+                    detail:detail.data('type'),
+                    times:$('.times').val(),
+                    explains:$('#explains').val()
+                },
+                success:function(data){
+                    if(typeof data=='string'){
+                        data=JSON.parse(data);
+                    }
+                    if(data.status){
+                        alert('保存成功');
+                        window.location.href='/home';
+                    }
+                    else{
+                        alert('保存失败');
+                    }
+                }
+            });
+        }
+    });
+
+    function setGenre(index){
+        genre.html(consumeModels[index].name+'<span class="caret"></span>');
+        genre.data('type',consumeModels[index].type)
+    }
+    function setDetail(index,index1){
+        detail.html(consumeModels[index].list[index1].name+'<span class="caret"></span>');
+        detail.data('type',consumeModels[index].list[index1].type)
+    }
+
+	</script>
+
+</body>
+
+</html>

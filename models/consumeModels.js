@@ -1,4 +1,4 @@
-var data = [{
+var consumeModels = [{
     "name": "其他",
     "type": 0,
     "list": [{
@@ -68,17 +68,17 @@ var data = [{
     }]
 }, {
     "name": "生活",
-    "types": 5,
+    "type": 5,
     "list": [{
         "name": "其他",
         "type": 0
     }, {
         "name": "门票",
         "type": 1
-    } {
+    }, {
         "name": "超市",
         "type": 2
     }]
 }]
 
-module.exports=data
+module.exports = consumeModels
