@@ -1,10 +1,16 @@
-import express from 'express';
-import routes from './routes/index.js';
-// import favicon from 'serve-favicon';
-import flash from 'connect-flash';
-import session from 'express-session';
-import path from 'path';
-import bodyParser from 'body-parser';
+// import express from 'express';
+// import routes from './routes/index.js';
+// import flash from 'connect-flash';
+// import session from 'express-session';
+// import path from 'path';
+// import bodyParser from 'body-parser';
+
+var express=require('express');
+var routes=require('./routes/index.js');
+var flash=require('connect-flash');
+var session=require('express-session');
+var path=require('path');
+var bodyParser=require('body-parser');
 
 let app = express();
 let port = process.env.PORT || 8023;

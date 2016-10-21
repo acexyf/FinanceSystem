@@ -1,4 +1,4 @@
-import mysql from 'mysql';
+var mysql= require('mysql');
 let database = 'corner';
 
 // let connection = mysql.createConnection({

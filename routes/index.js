@@ -7,11 +7,12 @@ const urls = {
     addIncome: '/addIncome',
     addConsume: '/addConsume'
 }
-import person from '../password.js';
-import Consume from '../models/consume.js';
-import Income from '../models/income.js';
-import consumeModels from '../models/consumeModels.js';
-import incomeModels from '../models/incomeModels.js';
+var person = require('../password.js');
+var Consume = require('../models/consume.js');
+var Income = require('../models/income.js');
+var consumeModels = require('../models/consumeModels.js');
+var incomeModels = require('../models/incomeModels.js');
+
 
 module.exports = function(app) {
     app.get(urls.index, function(req, res) {

@@ -1,4 +1,4 @@
-import db from './db.js';
+var db= require('./db.js');
 
 function Income(income) {
     this.id = income.id || 0,

@@ -1,4 +1,4 @@
-import Income from '../models/income.js';
+var Income require('../models/income.js');
 
 // Income.getIncomeByMonth(2016,11,-1,function(result){
 // 	console.log(result)

@@ -1,10 +1,7 @@
-import Consume from '../models/consume.js';
-
-
+var Consume require('../models/consume.js');
 
 let countArray=[],
 	timeArray=returnLastMonths(2017,2,10);
-
 
 for(let i=0;i<timeArray.length;i++){
 	let date=timeArray[i].split('-');

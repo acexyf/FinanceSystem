@@ -1,4 +1,4 @@
-import db from './db.js';
+var db= require('./db.js');
 
 function Consume(consume) {
     this.id = consume.id || 0,

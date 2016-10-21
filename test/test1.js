@@ -1,4 +1,4 @@
-import Consume from '../models/consume.js';
+var Consume require('../models/consume.js');
 
 // for(let i=8;i<11;i++){
 // 	for(let j=1;j<31;j++){
