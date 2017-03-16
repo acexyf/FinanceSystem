@@ -29,6 +29,8 @@ insert into finance_consume values(0,645,'2015-12-26','',0,0,2015,12,26);
 
 
 
+select 1+1 as solution
 
 
 
+desc blog_user
